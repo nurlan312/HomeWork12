@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="personId"
+          class="org.example.model.Person">
+<!--        <constructor-arg index="0" value="${person.name}"/>-->
+<!--        <constructor-arg index="1" value="${person.age}"/>-->
+        <property name="name" value="${person.name}"/>
+        <property name="age" value="${person.age}"/>
+        <constructor-arg ref="dogId"/>
+    </bean>
+
+    <bean id="dogId"
+          class="org.example.model.Dog">
+        <property name="name_dog" value="${dog.name}"/>
+        <property name="breed" value="${dog.breed}"/>
+        <property name="color" value="${dog.color}"/>
+        <property name="age_dog" value="${dog.age}"/>
+        <property name="weight" value="${dog.weight}"/>
+    </bean>
+
+    <bean id="personId1"
+          class="org.example.model.Person">
+        <property name="name" value="${person1.name}"/>
+        <property name="age" value="${person1.age}"/>
+        <constructor-arg ref="dogId1"/>
+    </bean>
+
+    <bean id="dogId1"
+          class="org.example.model.Dog">
+        <property name="name_dog" value="${dog1.name}"/>
+        <property name="breed" value="${dog1.breed}"/>
+        <property name="color" value="${dog1.color}"/>
+        <property name="age_dog" value="${dog1.age}"/>
+        <property name="weight" value="${dog1.weight}"/>
+    </bean>
+
+    <bean id="personId2"
+          class="org.example.model.Person">
+        <property name="name" value="${person2.name}"/>
+        <property name="age" value="${person2.age}"/>
+        <constructor-arg ref="tigerId"/>
+    </bean>
+
+    <bean id="tigerId"
+          class="org.example.model.Tiger">
+        <property name="color" value="${tiger.color}"/>
+        <property name="age" value="${tiger.age}"/>
+        <property name="weight" value="${tiger.weight}"/>
+    </bean>
+
+</beans>
